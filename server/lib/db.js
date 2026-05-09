@@ -42,6 +42,7 @@ async function initializeTables() {
                 email VARCHAR(255) UNIQUE NOT NULL,
                 password VARCHAR(255) NOT NULL,
                 profilePic VARCHAR(500),
+                bio TEXT,
                 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
 
@@ -51,6 +52,7 @@ async function initializeTables() {
                 receiverId INTEGER NOT NULL REFERENCES users(id),
                 message TEXT,
                 image VARCHAR(500),
+                seen BOOLEAN DEFAULT false,
                 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `);

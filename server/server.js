@@ -22,21 +22,23 @@ export const io = new Server(server, {
 export const userSocketMap = {} // {userId: socketId}
 
 io.on("connection", (Socket) => {
-  const userId = Socket.handshake.query.userId;
-  console.log("User Connected", userId);
+  try {
+    const userId = Socket.handshake.query.userId;
+    console.log("User Connected", userId);
 
-  if(userId) userSocketMap[userId] = Socket.id;
+    if(userId) userSocketMap[userId] = Socket.id;
 
-  // Emit online users to all connected clients (broadcast)
-  io.emit("getOnlineUsers", Object.keys(userSocketMap));
-
-  Socket.on("disconnect", () => {
-    console.log("User Disconnected", userId);
-    delete userSocketMap[userId];
+    // Emit online users to all connected clients (broadcast)
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
-  })
 
-
+    Socket.on("disconnect", () => {
+      console.log("User Disconnected", userId);
+      delete userSocketMap[userId];
+      io.emit("getOnlineUsers", Object.keys(userSocketMap));
+    })
+  } catch (error) {
+    console.log("Socket connection error:", error.message);
+  }
 })
 
 
