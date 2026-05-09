@@ -90,33 +90,7 @@ You need to have the following installed on your machine:
 
 You need to create `.env` files for both the server and the client and add the following variables.
 
-**1. Backend (`/server/.env`):**
-```env
-DATABASE_URL="your_postgresql_connection_string"
-PORT=5000
-JWT_SECRET="your_strong_jwt_secret_key"
 
-CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
-CLOUDINARY_API_KEY="your_cloudinary_api_key"
-CLOUDINARY_API_SECRET="your_cloudinary_api_secret"
-```
-
-**Example for Railway PostgreSQL:**
-```env
-DATABASE_URL="postgresql://user:password@host:port/database"
-PORT=5000
-JWT_SECRET="your_jwt_secret_key"
-CLOUDINARY_CLOUD_NAME="your_cloud_name"
-CLOUDINARY_API_KEY="your_api_key"
-CLOUDINARY_API_SECRET="your_api_secret"
-```
-
-**2. Frontend (`/client/.env`):**
-```env
-VITE_BACKEND_URL="http://localhost:5000"
-```
-
----
 
 ### API Endpoints
 A brief overview of the main API routes available.
