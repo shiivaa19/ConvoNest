@@ -46,11 +46,7 @@ You need to have the following installed on your machine:
 
 ### Installation & Setup
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/Hemanth-Muppa/ConvoNest.git
-    cd ConvoNest
-    ```
+
 
 2.  **Backend Setup:**
     ```sh
